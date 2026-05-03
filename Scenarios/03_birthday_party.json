@@ -1,0 +1,40 @@
+{
+  "id": "disputed-birthday-party",
+  "version": 1,
+  "title": "The Disputed Birthday Party",
+  "type": "adjudication",
+  "difficulty": 2,
+  "estimated_minutes": 12,
+  "scenario_text": "Two close friends, Alex and Blair, ask you to settle a fight. Alex spent two months and roughly $500 secretly planning a surprise birthday party for Blair's partner. Cake, decorations, fifteen guests invited, the partner's favorite restaurant booked out. The day before the party, Blair found out and canceled it. Their reason: the partner had been sick all week and Blair knew they wouldn't enjoy a crowd of people. Blair did not refund Alex for any of the costs. Alex is hurt and out of pocket. Alex says: 'I did all this for your partner, and you didn't even consult me before pulling the plug or offer to share the costs.' Blair says: 'You planned a major event involving my partner without checking with me first. That's on you.' They've asked you to rule. They will both accept your decision if your reasoning is sound.",
+  "framing_note": "Adjudication requires a decision. 'They're both wrong' and 'they're both right' aren't rulings. You'll need to identify who is mostly in the wrong, what principle your ruling rests on, and why the losing side's argument — which is real — doesn't carry the day. Imagine you'll have to defend your reasoning to both of them.",
+  "user_options": [
+    {
+      "label": "I'll rule for Alex",
+      "position": "Blair is mostly in the wrong; Alex is owed at minimum a partial reimbursement and an apology"
+    },
+    {
+      "label": "I'll rule for Blair",
+      "position": "Alex is mostly in the wrong; Blair owes nothing because Alex assumed the risk by not consulting them"
+    },
+    {
+      "label": "I'll rule for a split obligation",
+      "position": "Both are partly in the wrong; here is how I would divide the obligation between them"
+    }
+  ],
+  "evaluation_criteria": [
+    "Did the user actually rule, or did they evade ('they're both wrong')?",
+    "Did the user articulate a clear principle that the ruling rests on, not just an opinion about the case?",
+    "Does the principle generalize — would it produce a sensible answer if the facts changed slightly?",
+    "Did the user acknowledge the losing side's strongest argument and explain why it loses here, rather than dismissing it?",
+    "Did the user distinguish 'wrong' from 'owes a remedy' (sophisticated adjudication often separates these)?"
+  ],
+  "ai_focus_hints": [
+    "If the user says 'they're both equally wrong' or 'I can't decide', refuse it gently but firmly: 'That's the easy answer. If I forced you to lean one way, even slightly, which way and why?' Adjudication requires a decision.",
+    "If the user picks a side without articulating a principle, push: 'What's the rule you're applying? If I changed the facts, would the same rule produce the same answer?'",
+    "If the user's principle is too narrow ('A should have asked because the partner was sick'), push: 'Would A still need to ask if the partner wasn't sick? Is your rule about asking, or about something else?'",
+    "If the user dismisses the losing side's case, force engagement: 'They have a real point. Why isn't it enough?'",
+    "Try at most ONE fact-tweak per session. Suggested tweaks: 'What if the costs were $50 not $500?' or 'What if Blair had said weeks ago they liked surprises?' or 'Would your rule still feel right if it were applied to YOU next time you planned something for a friend?' One variable, fairly tested.",
+    "Concede genuinely when the user states a clear principle that holds under one fact-tweak, acknowledges the losing side's strongest point honestly, and gives reasoning both parties could accept. That's real adjudication."
+  ],
+  "wrap_trigger": "Wrap when the user has issued a ruling, articulated the supporting principle, and survived at least one principle-test hypothetical without abandoning their reasoning. If the user keeps refusing to rule, do not wrap — keep the pressure on gently. The exercise is incomplete without a decision."
+}

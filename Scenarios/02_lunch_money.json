@@ -1,0 +1,37 @@
+{
+  "id": "lunch-money-standoff",
+  "version": 1,
+  "title": "The Lunch Money Standoff",
+  "type": "negotiation",
+  "difficulty": 2,
+  "estimated_minutes": 10,
+  "scenario_text": "You are seven years old. It is lunch break at school. Three older boys — eleven or twelve, bigger than you, alone with you behind the building — have stopped you and want your lunch money. There is no teacher in sight. Running won't work; they're faster. Fighting won't work; they're stronger. You have only what you can say. What do you do?",
+  "framing_note": "This isn't about finding a clever trick. It is about thinking clearly under pressure when force isn't available. The first question to ask yourself: what do they actually want? Money is what they said. But is that really it? Your strategy depends entirely on the answer.",
+  "user_options": [
+    {
+      "label": "I'll work out what to say",
+      "position": "I will negotiate or argue my way through this without giving up the money"
+    },
+    {
+      "label": "I'll give them the money",
+      "position": "I will give them the money and explain why that's the right call"
+    }
+  ],
+  "evaluation_criteria": [
+    "Did the user diagnose what the older boys actually want (their interest) before proposing a strategy?",
+    "Did the user distinguish positions ('they want money') from interests (status, dominance, recurring tribute, hunger)?",
+    "Does the user's strategy address the interest or just the surface position?",
+    "Did the user think about the recurrence problem — will this happen again tomorrow?",
+    "Was the user intellectually honest about the limits of argumentation here, or did they pretend pure cleverness can solve everything?"
+  ],
+  "ai_focus_hints": [
+    "BEFORE evaluating any user strategy, ask one question and one only: 'What do you think the older boys actually want — the money itself, or something else?' Refuse to evaluate their full argument until they have at least attempted to name the interest. This is the pedagogical engine of the scenario.",
+    "If the user just defends the position ('it's my money'), point out this is true but useless — they have no leverage to enforce it. Redirect to diagnosis.",
+    "If the user immediately escalates ('I'll tell the teacher / I'll fight back'), accept these as valid endpoints but only AFTER they've thought through the negotiation possibility. Push back: 'Maybe — but before you go there, is there a version where you don't need to?'",
+    "If the user proposes 'offer them half', push: 'Why half? What makes you think money is what they're really after?'",
+    "If the user invents magical-thinking solutions ('I'll make them laugh'), test them: 'What if it lands wrong? What's the fallback?'",
+    "Try at most ONE fact-tweak per session. Suggested tweaks: 'What if they're actually hungry, not just bullies?', or 'What if their friends are watching — does that change what they need?', or 'What if you say that and they grab the money anyway — what's next?'",
+    "Concede genuinely if the user names the interest correctly, designs a strategy that addresses it, or honestly concludes that this case can't be won by argument alone. Intellectual honesty about the limits of negotiation is a good outcome, not a failure."
+  ],
+  "wrap_trigger": "Wrap when the user has either constructed a strategy that addresses the diagnosed interest, or has honestly concluded the case requires escalation to an adult. Going in circles defending the position without diagnosing the interest is the failure mode — keep pushing them toward the diagnostic question."
+}

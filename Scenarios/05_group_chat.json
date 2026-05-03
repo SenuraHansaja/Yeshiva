@@ -1,0 +1,34 @@
+{
+  "id": "group-chat-rule",
+  "version": 1,
+  "title": "The Group Chat Rule",
+  "type": "drafting",
+  "difficulty": 3,
+  "estimated_minutes": 15,
+  "scenario_text": "You and a group of close friends share a long-running group chat. Lately, several people have started posting screenshots of conversations from other private chats they're in — usually to ridicule, gossip about, or comment on what someone said somewhere else. It's making the chat feel less safe; some members have started self-censoring. The group has asked you to draft a rule that everyone will agree to follow. Your rule needs to be specific enough that, given any particular screenshot situation, the group can apply it consistently. State your rule. Then I'm going to throw fact patterns at you, one at a time, to see whether the rule holds.",
+  "framing_note": "This isn't an argument you defend — it's a rule you build. You will start with a rule, and I will test it against variations. With each variation you can refine the rule, add an exception, or honestly say 'this case is outside what the rule covers.' Refusing to engage with a variation is the failure mode. The goal is not to defend your original rule; it is to evolve it into something better. Most users finish with a rule meaningfully sharper than where they started — that's the point.",
+  "user_options": [
+    {
+      "label": "I'll draft my rule",
+      "position": "I will state an initial rule and refine it as the AI tests it against fact variations"
+    }
+  ],
+  "evaluation_criteria": [
+    "Was the user's initial rule specific enough to be testable, or so vague ('be respectful') that no fact pattern could clearly violate it?",
+    "When fact-tweaks broke the rule, did the user refine it, add a principled exception, or honestly say 'this case is outside the rule's scope' — rather than refusing to engage?",
+    "Were the user's exceptions principled, or convenient (allowing exactly the kinds of screenshots the user personally takes)?",
+    "Could the user articulate the underlying value the rule is meant to protect — privacy, consent, trust, harm prevention — by the end of the session?",
+    "Did the user end with a rule that is sharper, more sophisticated, or better-targeted than the initial one?"
+  ],
+  "ai_focus_hints": [
+    "If the initial rule is vague ('be respectful'), demand operational specificity: 'Given a specific case, can you tell me whether it violates the rule? If not, the rule is too vague to use.'",
+    "If the rule is absolute ('never screenshot anything'), test with a sympathetic counterexample (e.g., evidence of a threat). Force the user to either accept the absolute and bite the bullet, or carve a principled exception.",
+    "Fire variations ONE AT A TIME. Wait for the user's response before introducing the next. Pace is deliberate. The user should feel each variation is doing a specific job, not being pelted.",
+    "Each variation should isolate a different dimension. Suggested dimensions and tweaks: PRIVACY ('what if the screenshot is from a public channel?'), CONSENT ('what if the quoted person is in this chat anyway?'), HARM PREVENTION ('what if it's evidence of someone being threatened?'), PRIOR PUBLICATION ('what if it's already been forwarded three times before reaching us?'), IDENTITY ('what if the quoted person is a public figure speaking on something publicly relevant?'), SELF-INTEREST TEST ('what if you yourself were the one quoted — would your rule have protected you?').",
+    "Use 4–6 variations per session. Choose them to hit different dimensions, not to pile on one dimension.",
+    "If the user gives inconsistent answers across two similar variations, name it: 'Help me see the difference. What changed between those two cases?' Inconsistency is a sign that the rule needs another distinction.",
+    "When the user invents their own hypothetical to test their rule, that's a very strong move — concede explicitly that they're now doing real legal-style work.",
+    "Concede genuinely when the user has refined the rule meaningfully, articulated the underlying value, and added at least one principled exception or limit."
+  ],
+  "wrap_trigger": "Wrap when the user has produced a rule that survives 4–5 variations, can articulate its underlying value, and has at least one explicit exception or qualification. The user should feel they have done real intellectual work — not that they were grilled. Do NOT wrap if the user is still defending the original vague or absolute rule against multiple counterexamples; staying in that pressure is the lesson."
+}

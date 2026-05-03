@@ -1,0 +1,42 @@
+{
+  "id": "group-project-freerider",
+  "version": 1,
+  "title": "The Group Project Free-rider",
+  "type": "dilemma",
+  "difficulty": 3,
+  "estimated_minutes": 12,
+  "scenario_text": "You're in a group of four students working on a major semester project. One of your groupmates, Sam, has barely contributed. They missed three of the five meetings, didn't deliver their assigned section until you and another groupmate quietly rewrote it the night before the deadline, and didn't acknowledge any of this. You don't know why — Sam hasn't said much. The project is due tomorrow. The professor has just emailed each group member privately asking: 'Did each member of your group contribute equally to the final project? Please answer honestly; your response is confidential and will inform individual grading.' You have to reply by the end of the day. What do you say?",
+  "framing_note": "There is no clean right answer here. Telling the truth damages a classmate. Shading the truth misleads someone in authority who is asking specifically because they need accurate information. Refusing to answer looks evasive and may invite further questions. Every option has a real cost. Your job is to commit to a path and own the cost honestly — not to find a clever middle that lets you avoid the choice.",
+  "user_options": [
+    {
+      "label": "I'll tell the professor the full truth",
+      "position": "I will answer the professor's question accurately, including that Sam did not contribute equally, even though it may damage Sam"
+    },
+    {
+      "label": "I'll shade the answer in Sam's favor",
+      "position": "I will answer in a way that protects Sam — minimizing or omitting their lack of contribution — even though it misleads the professor"
+    },
+    {
+      "label": "I'll decline to answer",
+      "position": "I will tell the professor I'd rather not comment on the contributions of individual groupmates, even though this looks evasive"
+    }
+  ],
+  "evaluation_criteria": [
+    "Did the user commit to a real path, or did they try to escape into a 'safe middle' (vague positivity that misleads while feeling honest)?",
+    "Did the user name what their choice costs, and who pays the cost?",
+    "Was the justification principled, or merely self-interested ('this feels easier')?",
+    "Did the user survive a fact-tweak without flailing, or did they honestly update their position when the tweak made their path untenable?",
+    "Did the user acknowledge that the path they did not take had a real argument for it, rather than dismissing it?"
+  ],
+  "ai_focus_hints": [
+    "The cardinal failure mode is the 'safe middle path' — vague positivity that misleads the professor while letting the user feel honest. Push hard against this: 'That's not a third option. It's lying with extra steps. Pick a real path.'",
+    "If the user's reasoning is self-interest disguised as principle ('telling the truth feels harsh' = 'I don't want to be the bad guy'), name it: 'That's a feeling about you, not a principle about the truth. Is there a real reason, or are you just trying to not be the bad guy?'",
+    "If the user moralizes ('lying is always wrong'), test: 'Always? What if Sam was dealing with a death in the family they hadn't disclosed?'",
+    "If the user refuses to commit ('I'd need more facts'), force the moment: 'The professor is asking now. With the facts you have, what's your answer?'",
+    "If the user gives a performatively honest answer too quickly ('I'd absolutely tell the truth'), test the relationship cost: 'OK — what about facing Sam after the grades come out? Are you ready for that?'",
+    "Periodically ask: 'What does your answer cost? Who pays?' This is the signature pedagogical move of this scenario.",
+    "Try at most ONE fact-tweak per session. Suggested tweaks: 'What if Sam has been dealing with serious depression all semester?' or 'What if the course is required for Sam's major and your honest answer might fail them?' or 'What if the other groupmates have privately agreed to stay vague to protect Sam — you'd be breaking ranks?' One variable.",
+    "Concede genuinely if the user commits, names the cost, articulates a principled justification, and either holds the line under fact-tweaks or honestly updates."
+  ],
+  "wrap_trigger": "Wrap when the user has committed to a real path, named the costs, and either survived or honestly updated under a fact-tweak. If the user keeps reaching for the safe middle, do not wrap — staying in that pressure is the whole point of the scenario."
+}

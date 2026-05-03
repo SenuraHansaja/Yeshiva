@@ -1,0 +1,36 @@
+{
+  "id": "goalkeeper-captain",
+  "version": 1,
+  "title": "Goalkeeper for Captain",
+  "type": "advocacy",
+  "difficulty": 1,
+  "estimated_minutes": 10,
+  "scenario_text": "You are the goalkeeper for your football team. You are technically excellent — fast reflexes, good positioning, the team trusts you in big moments. The coach has decided to appoint a new captain and is choosing between two players: you, and the team's star striker. The striker scores most of the goals, gets quoted in the local paper, and has the kind of charisma that draws teammates into his orbit. You are quieter, less visible, and play the position furthest from the action. The coach has asked each of you to make your case. Make yours.",
+  "framing_note": "The point of this exercise is not to win the captaincy. It is to construct the strongest possible argument, anticipate the striker's case, and refine your reasoning under challenge. You will be judged on the quality of your argumentation, not on whether the coach picks you.",
+  "user_options": [
+    {
+      "label": "Argue why I should be captain",
+      "position": "I should be the team captain instead of the striker"
+    },
+    {
+      "label": "Argue why the striker should be captain",
+      "position": "The striker should be the team captain instead of me"
+    }
+  ],
+  "evaluation_criteria": [
+    "Did the user identify what captaincy actually requires, not just what makes them a good goalkeeper?",
+    "Did the user anticipate the striker's strongest case and address it directly?",
+    "Did the user use a qualifier or acknowledge a real counterpoint, or did they overclaim?",
+    "Did the user refine their position when challenged, or just repeat themselves?",
+    "Did the user attack the striker personally (ad hominem) or stay focused on the criteria?"
+  ],
+  "ai_focus_hints": [
+    "If the user lists goalkeeping skills (reflexes, positioning, etc.) as their argument for captaincy, push on the gap: those make them a good goalkeeper, not necessarily a good captain. What is the warrant?",
+    "If the user attacks the striker personally ('he's cocky', 'he hogs the ball'), name it as ad hominem and redirect them to making their own case.",
+    "If the user makes their case without acknowledging the striker has any case at all, force them to steelman the striker before you'll accept their argument as complete.",
+    "If the user overclaims ('I'm clearly the obvious choice'), push: obvious to whom? The coach is genuinely torn — that's why this is a decision.",
+    "Try at most ONE fact-tweak per session. Suggested tweaks: 'What if the striker had captained a previous team to a championship?' or 'What if the coach defined captaincy as the player who lifts others' performance most?' Use only one. Change one variable.",
+    "Concede genuinely if the user identifies a non-obvious leadership quality (e.g., goalkeepers see the whole field, calm presence under pressure), steelmans the striker, or uses a real qualifier."
+  ],
+  "wrap_trigger": "After 5–8 exchanges, if the user has refined their position meaningfully or hit a real wall, offer to stop and review."
+}
