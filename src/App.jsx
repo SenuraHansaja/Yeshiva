@@ -488,47 +488,60 @@ function Refinement({ scenario, points, setPoints }) {
   const words = starterToneWords[scenario.type] || starterToneWords.Advocacy;
   const tones = ["Clear", "Calm", "Firm", "Warm", "Direct", "Balanced"];
 
-  const updatePoint = (id, patch) => setPoints((prev) => prev.map((point) => (point.id === id ? { ...point, ...patch } : point)));
+  const updatePoint = (id, patch) => {
+    setPoints((prev) => prev.map((point) => (point.id === id ? { ...point, ...patch } : point)));
+  };
+
   const toggleWord = (point, word) => {
     const exists = point.words.includes(word);
-    updatePoint(point.id, { words: exists ? point.words.filter((w) => w !== word) : [...point.words, word].slice(0, 3) });
+    updatePoint(point.id, {
+      words: exists ? point.words.filter((w) => w !== word) : [...point.words, word].slice(0, 3),
+    });
   };
+
   const addCustomWord = (point) => {
     const word = point.customWord.trim();
     if (!word) return;
-    updatePoint(point.id, { words: [...point.words, word].slice(0, 3), customWord: "" });
+
+    const withoutDuplicate = point.words.filter((existingWord) => existingWord.toLowerCase() !== word.toLowerCase());
+    updatePoint(point.id, {
+      words: [word, ...withoutDuplicate].slice(0, 3),
+      customWord: "",
+    });
   };
 
   return (
     <div className="mx-auto w-full max-w-7xl flex-1 overflow-hidden px-1">
       <div className="mb-4 rounded-2xl border-2 border-zinc-200 bg-[#fbfaf7] p-4 text-center font-semibold text-zinc-600">
-        Choose a tone and up to three words or phrases for each point. This forces the argument to become sayable, not just thinkable.
+        Choose a tone and up to three words or phrases for each point. Selected words now appear directly under the input and carry into the final script.
       </div>
-      <div className="flex max-h-[62vh] flex-col gap-4 overflow-auto pr-1">
+
+      <div className="flex max-h-[64vh] flex-col gap-5 overflow-auto pr-1">
         {points.map((point, index) => (
-          <div key={point.id} className="grid gap-3 border-b-[3px] border-zinc-950 pb-4 lg:grid-cols-[1.25fr_1fr]">
-            <div className="rounded-[1.4rem] border-[3px] border-zinc-950 bg-zinc-950 p-4 text-white shadow-[4px_4px_0_rgba(0,0,0,.14)]">
-              <div className="mb-2 flex items-center justify-between gap-3">
-                <div className="font-mono text-xl font-black">Point {index + 1}</div>
-                <button
-                  type="button"
-                  onClick={() => setPoints((prev) => prev.filter((p) => p.id !== point.id))}
-                  className="rounded-xl p-2 hover:bg-white hover:text-zinc-950"
-                  aria-label="Remove point"
-                >
-                  <Icon name="x" size={22} strokeWidth={4} />
-                </button>
+          <div key={point.id} className="border-b-[3px] border-zinc-950 pb-5 last:border-b-0">
+            <div className="grid items-stretch gap-4 xl:grid-cols-[minmax(360px,1.25fr)_minmax(260px,.55fr)_minmax(420px,.8fr)]">
+              <div className="rounded-[1.4rem] border-[3px] border-zinc-950 bg-zinc-950 p-5 text-white shadow-[4px_4px_0_rgba(0,0,0,.14)]">
+                <div className="mb-3 flex items-center justify-between gap-3">
+                  <div className="font-mono text-2xl font-black">Point {index + 1}</div>
+                  <button
+                    type="button"
+                    onClick={() => setPoints((prev) => prev.filter((p) => p.id !== point.id))}
+                    className="rounded-xl p-2 hover:bg-white hover:text-zinc-950"
+                    aria-label="Remove point"
+                  >
+                    <Icon name="x" size={24} strokeWidth={4} />
+                  </button>
+                </div>
+                <textarea
+                  value={point.text}
+                  onChange={(e) => updatePoint(point.id, { text: e.target.value })}
+                  rows={4}
+                  className="w-full resize-none bg-transparent font-mono text-xl font-black text-white placeholder:text-zinc-400 focus:outline-none"
+                  placeholder={`Point ${index + 1}`}
+                />
               </div>
-              <textarea
-                value={point.text}
-                onChange={(e) => updatePoint(point.id, { text: e.target.value })}
-                rows={2}
-                className="w-full resize-none bg-transparent font-mono text-lg font-black text-white placeholder:text-zinc-400 focus:outline-none"
-                placeholder={`Point ${index + 1}`}
-              />
-            </div>
-            <div className="grid gap-3 sm:grid-cols-[.7fr_1fr]">
-              <div className="rounded-[1.2rem] border-[3px] border-zinc-950 bg-white p-3">
+
+              <div className="rounded-[1.2rem] border-[3px] border-zinc-950 bg-white p-4">
                 <label className="mb-2 block text-xs font-black uppercase tracking-wide text-zinc-500">Tone</label>
                 <select
                   value={point.tone}
@@ -537,32 +550,72 @@ function Refinement({ scenario, points, setPoints }) {
                 >
                   {tones.map((tone) => <option key={tone}>{tone}</option>)}
                 </select>
-                <div className="mt-3 flex gap-2">
+
+                <div className="mt-4 flex gap-2">
                   <input
                     value={point.customWord}
                     onChange={(e) => updatePoint(point.id, { customWord: e.target.value })}
-                    onKeyDown={(e) => e.key === "Enter" && addCustomWord(point)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        e.preventDefault();
+                        addCustomWord(point);
+                      }
+                    }}
                     placeholder="write phrase"
                     className="min-w-0 flex-1 rounded-xl border-2 border-zinc-950 px-3 py-2 text-sm font-bold"
                   />
-                  <button type="button" onClick={() => addCustomWord(point)} className="rounded-xl bg-zinc-950 px-3 text-white" aria-label="Add phrase"><Icon name="plus" size={18} /></button>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-                {words.slice(0, 6).map((word) => (
                   <button
                     type="button"
-                    key={word}
-                    onClick={() => toggleWord(point, word)}
-                    className={clsx(
-                      "rounded-[1.1rem] border-[3px] border-zinc-950 p-3 text-center font-mono text-base font-black shadow-[3px_3px_0_rgba(0,0,0,.14)]",
-                      point.words.includes(word) ? "bg-amber-200 text-zinc-950" : "bg-zinc-950 text-white"
-                    )}
+                    onClick={() => addCustomWord(point)}
+                    className="flex h-11 w-12 shrink-0 items-center justify-center rounded-xl bg-zinc-950 text-white hover:bg-zinc-800"
+                    aria-label="Add phrase"
                   >
-                    {word}
-                    <div className="text-xl leading-none">×</div>
+                    <Icon name="plus" size={20} />
                   </button>
-                ))}
+                </div>
+
+                <div className="mt-4 min-h-16 rounded-xl border-2 border-dashed border-zinc-300 bg-[#fbfaf7] p-2">
+                  <div className="mb-2 text-xs font-black uppercase tracking-wide text-zinc-500">Selected words</div>
+                  {point.words.length ? (
+                    <div className="flex flex-wrap gap-2">
+                      {point.words.map((word) => (
+                        <button
+                          type="button"
+                          key={word}
+                          onClick={() => toggleWord(point, word)}
+                          className="rounded-full border-2 border-zinc-950 bg-amber-200 px-3 py-1 text-sm font-black text-zinc-950"
+                          title="Click to remove"
+                        >
+                          {word} ×
+                        </button>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-sm font-bold text-zinc-400">None yet</div>
+                  )}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {words.slice(0, 6).map((word) => {
+                  const selected = point.words.includes(word);
+                  return (
+                    <button
+                      type="button"
+                      key={word}
+                      onClick={() => toggleWord(point, word)}
+                      className={clsx(
+                        "flex min-h-24 items-center justify-center rounded-[1.1rem] border-[3px] border-zinc-950 p-3 text-center font-mono text-lg font-black leading-tight shadow-[3px_3px_0_rgba(0,0,0,.14)] transition",
+                        selected ? "bg-amber-200 text-zinc-950" : "bg-zinc-950 text-white hover:bg-zinc-800"
+                      )}
+                    >
+                      <span className="break-words">
+                        {word}
+                        <span className="mt-1 block text-xl leading-none">×</span>
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
