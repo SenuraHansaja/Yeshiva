@@ -1,3 +1,6 @@
+# Persuasive Thinking App 
+as of now the target is lawyers
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
